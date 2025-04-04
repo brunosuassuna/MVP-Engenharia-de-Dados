@@ -1,93 +1,103 @@
-# MVP-Engenharia-de-Dados
+📌 Bike Sharing - MVP Engenharia de Dados
+📖 Descrição do Projeto
+Este projeto tem como objetivo analisar o comportamento dos aluguéis de bicicletas em um sistema de compartilhamento, identificando padrões e tendências para apoiar a tomada de decisões estratégicas.
 
+🎯 Objetivos
+📊 Entender a sazonalidade: Analisar como as estações do ano impactam o volume de aluguéis.
 
-MVP - Sprint: Engenharia de Dados 
-Documentação do Projeto Bike Sharing
+☀️ Avaliar o impacto do clima: Examinar como as condições climáticas influenciam a demanda.
 
-1. Documentação Detalhada do Processo e dos Resultados
+⏰ Identificar horários de pico: Determinar os períodos de maior demanda ao longo do dia.
 
-1.1. Contexto e Objetivos do Projeto
+📅 Comparar dias úteis e finais de semana: Verificar diferenças no uso das bicicletas entre dias de trabalho e lazer.
 
-O projeto tem como objetivo analisar o comportamento dos aluguéis de bicicletas em um sistema de compartilhamento, com foco em identificar padrões e tendências que possam auxiliar na tomada de decisões estratégicas. Os principais objetivos são:
-Entender a sazonalidade: Como as estações do ano afetam o volume de aluguéis.
-Avaliar o impacto do clima: Como as condições climáticas influenciam a demanda por bicicletas.
-Identificar horários de pico: Quais são os períodos de maior demanda ao longo do dia.
-Comparar dias úteis e fins de semana: Como o uso de bicicletas varia entre dias de trabalho e dias de lazer.
+📂 1. Metodologia
+📥 1.1. Coleta dos Dados
+Os dados foram obtidos do diretório /databricks-datasets/bikeSharing/ no Databricks.
 
-1.2. Metodologia
+Conjunto de dados utilizado:
 
-1.2.1. Coleta dos Dados
-
-O dataset Bike Sharing foi selecionado por ser um conjunto de dados aberto, bem documentado e amplamente utilizado em análises de mobilidade urbana.
-Os dados foram coletados do diretório /databricks-datasets/bikeSharing/ no Databricks, contendo dois arquivos principais:
 day.csv: Dados agregados por dia.
+
 hour.csv: Dados agregados por hora.
-Os arquivos foram copiados para um diretório pessoal (/FileStore/tables/aula-databricks/projeto_final/bikeSharing/) para garantir a reprodutibilidade do projeto.
 
-1.2.2. Modelagem dos Dados
+Os arquivos foram copiados para /FileStore/tables/aula-databricks/projeto_final/bikeSharing/ para reprodutibilidade.
+
+📑 1.2. Modelagem dos Dados
 Foram criadas duas tabelas no banco de dados SQL:
-dados_dia: Contém dados agregados por dia, com 16 atributos.
-dados_hora: Contém dados agregados por hora, com 17 atributos (incluindo a hora do dia).
-O Catálogo de Dados foi elaborado para documentar os atributos, tipos de dados, descrições e domínios de cada coluna.
 
-1.2.3. Carga dos Dados
-Os dados foram carregados nas tabelas SQL utilizando comandos de ETL (Extração, Transformação e Carga).
-Exemplo de carga para a tabela dados_dia:
+dados_dia: Dados agregados por dia (16 atributos).
 
-1.2.4. Análise dos Dados
+dados_hora: Dados agregados por hora (17 atributos, incluindo a hora do dia).
 
-Foram realizadas análises exploratórias para responder às perguntas-chave do projeto:
-Sazonalidade: Qual é o total de aluguéis por estação do ano?
-Impacto do Clima: Como as condições climáticas afetam o número de aluguéis?
-Horários de Pico: Quais são os horários de maior demanda ao longo do dia?
-Dias Úteis vs. Fins de Semana: Como o uso de bicicletas varia entre dias de trabalho e dias de lazer?
-As análises foram realizadas utilizando SQL para agregações e consultas, e bibliotecas Python (Matplotlib, Seaborn) para visualizações gráficas.
+Um Catálogo de Dados foi elaborado para documentar os atributos, tipos de dados e descrições de cada coluna.
 
-1.2.5. Resultados
-Os resultados foram documentados em gráficos e tabelas, destacando:
-O total de aluguéis por estação do ano.
-A relação entre condições climáticas e volume de aluguéis.
-Os horários de pico de demanda.
-A comparação entre dias úteis e fins de semana/feriados.
+🔄 1.3. Carga dos Dados
+Utilização de ETL (Extração, Transformação e Carga) para inserir os dados nas tabelas SQL.
 
-2. Discussão Aprofundada Conectando as Análises aos Objetivos do Projeto
+Exemplo de comando de carga:
 
-2.1. Sazonalidade: Total de Aluguéis por Estação do Ano
+CREATE TABLE dados_dia AS 
+SELECT * FROM bikeSharing.day;
 
-Resultado: O verão registrou o maior volume de aluguéis (35% do total), enquanto o inverno teve o menor volume (15%).
-Discussão:
-O aumento no verão pode ser atribuído ao clima mais favorável, que incentiva atividades ao ar livre.
-No inverno, o clima frio e as condições adversas (neve, chuva) reduzem a demanda por bicicletas.
-Implicação Estratégica: A empresa pode desenvolver campanhas promocionais no inverno, como descontos ou pacotes especiais, para estimular a demanda.
+🔍 1.4. Análise dos Dados
+Foram conduzidas análises exploratórias para responder às perguntas-chave do projeto:
+✔ Sazonalidade: Distribuição de aluguéis por estação do ano.
+✔ Impacto do clima: Influência das condições climáticas na demanda.
+✔ Horários de pico: Padrões de uso ao longo do dia.
+✔ Dias úteis vs. fins de semana: Diferença no comportamento dos usuários.
 
-2.2. Impacto do Clima nos Aluguéis
-Resultado: Dias com clima claro tiveram 40% mais aluguéis do que dias com chuva ou neve.
-Discussão:
-O clima é um fator crítico para o uso de bicicletas, pois afeta a segurança e o conforto dos usuários.
-Implicação Estratégica: A empresa pode monitorar previsões do tempo e ajustar a disponibilidade de bicicletas conforme as condições climáticas, além de investir em infraestrutura para dias chuvosos (e.g., coberturas para bicicletas).
+Ferramentas utilizadas:
 
-2.3. Horários de Pico de Aluguéis
+SQL para agregações e consultas.
 
-Resultado: Os horários de pico foram às 8h e 17h-18h em dias úteis, e ao meio-dia em fins de semana.
-Discussão: Os picos em dias úteis estão associados ao deslocamento para o trabalho, refletindo o uso de bicicletas como meio de transporte.
-No fim de semana, o pico ao meio-dia indica o uso recreativo das bicicletas.
-Implicação Estratégica: A empresa pode aumentar a disponibilidade de bicicletas nos horários de pico e oferecer promoções para aluguéis fora desses períodos, otimizando a utilização da frota.
+Python (Matplotlib, Seaborn) para visualizações gráficas.
 
-2.4. Comparação entre Dias Úteis e Fins de Semana/Feriados
+📊 2. Resultados e Discussões
+🍂 2.1. Sazonalidade - Total de Aluguéis por Estação
+Verão: Maior volume (35% do total).
 
-Resultado: Dias úteis tiveram 60% mais aluguéis do que fins de semana/feriados.
-Discussão: O uso de bicicletas para deslocamento ao trabalho é mais consistente e previsível do que o uso recreativo.
-Implicação Estratégica: A empresa pode desenvolver estratégias para aumentar o uso recreativo, como parcerias com pontos turísticos, eventos ou promoções para famílias.
+Inverno: Menor volume (15%).
+📌 Implicação: Desenvolver campanhas promocionais no inverno para estimular a demanda.
 
-2.5. Relação entre Temperatura e Aluguéis
-Resultado: Há uma correlação positiva entre temperatura e número de aluguéis (coeficiente de correlação de 0,75).
-Discussão: Temperaturas mais altas incentivam o uso de bicicletas, enquanto temperaturas baixas desencorajam.
-Implicação Estratégica: A empresa pode ajustar a frota de bicicletas conforme a estação do ano e as previsões de temperatura, além de oferecer incentivos para aluguéis em dias mais frios.
+☁️ 2.2. Impacto do Clima nos Aluguéis
+Dias claros tiveram 40% mais aluguéis que dias chuvosos ou com neve.
+📌 Implicação: Ajustar a frota com base nas previsões meteorológicas.
 
-Conclusão Geral e Recomendações:
-O projeto alcançou seus objetivos ao identificar padrões e tendências no uso do sistema de compartilhamento de bicicletas. Os resultados fornecem insights valiosos para a empresa, como:
-Ajustar a disponibilidade de bicicletas conforme a estação do ano, o clima e os horários de pico.
-Desenvolver campanhas promocionais para estimular a demanda em períodos de baixa utilização (inverno, dias chuvosos, horários fora de pico).
-Investir em infraestrutura para melhorar a experiência do usuário em condições climáticas adversas.
-Fortalecer parcerias com pontos turísticos e eventos para aumentar o uso recreativo das bicicletas.
+⏰ 2.3. Horários de Pico
+Dias úteis: 8h e 17h-18h (horários de deslocamento para o trabalho).
 
+Fins de semana: 12h (uso recreativo).
+📌 Implicação: Aumentar a disponibilidade de bicicletas nos horários de pico.
+
+📅 2.4. Dias Úteis vs. Finais de Semana
+Dias úteis tiveram 60% mais aluguéis que os fins de semana.
+📌 Implicação: Criar incentivos para aumentar o uso recreativo (parcerias com pontos turísticos).
+
+🌡️ 2.5. Relação entre Temperatura e Aluguéis
+Correlação positiva (coeficiente de 0,75) entre temperatura e número de aluguéis.
+📌 Implicação: Ajustar a frota conforme a estação do ano.
+
+✅ 3. Conclusão e Recomendações
+✔️ Ajustar a frota de bicicletas conforme estação do ano, clima e horários de pico.
+✔️ Criar campanhas promocionais para períodos de baixa demanda (inverno, dias chuvosos).
+✔️ Investir em infraestrutura para melhorar a experiência do usuário em condições climáticas adversas.
+✔️ Estabelecer parcerias estratégicas para incentivar o uso recreativo das bicicletas.
+
+🛠 4. Tecnologias Utilizadas
+Tecnologia	Uso
+Databricks	Plataforma de análise de dados
+SQL	Modelagem e consultas
+Python	Análises e visualizações
+Matplotlib/Seaborn	Gráficos e insights visuais
+
+📌 5. Como Reproduzir o Projeto
+Clone este repositório:
+
+git clone https://github.com/seu-usuario/bike-sharing-mvp.git
+Acesse o Databricks e copie os arquivos do diretório:
+
+/FileStore/tables/aula-databricks/projeto_final/bikeSharing/
+Importe os arquivos .csv para um banco de dados SQL.
+
+Execute os scripts de ETL e análise disponíveis no repositório.
