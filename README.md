@@ -100,6 +100,7 @@ Correlação positiva (coeficiente de 0,75) entre temperatura e número de alugu
 📌 Implicação: Ajustar a frota conforme a estação do ano.
 
 ✅ 3. Conclusão e Recomendações
+
 ✔️ Ajustar a frota de bicicletas conforme estação do ano, clima e horários de pico.
 
 ✔️ Criar campanhas promocionais para períodos de baixa demanda (inverno, dias chuvosos).
@@ -109,6 +110,7 @@ Correlação positiva (coeficiente de 0,75) entre temperatura e número de alugu
 ✔️ Estabelecer parcerias estratégicas para incentivar o uso recreativo das bicicletas.
 
 🛠 4. Tecnologias Utilizadas
+
 Tecnologia	Uso
 
 Databricks	Plataforma de análise de dados
