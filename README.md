@@ -84,7 +84,7 @@ Resultado: Há uma correlação positiva entre temperatura e número de aluguéi
 Discussão: Temperaturas mais altas incentivam o uso de bicicletas, enquanto temperaturas baixas desencorajam.
 Implicação Estratégica: A empresa pode ajustar a frota de bicicletas conforme a estação do ano e as previsões de temperatura, além de oferecer incentivos para aluguéis em dias mais frios.
 
-Conclusão Geral e Recomendações
+Conclusão Geral e Recomendações:
 O projeto alcançou seus objetivos ao identificar padrões e tendências no uso do sistema de compartilhamento de bicicletas. Os resultados fornecem insights valiosos para a empresa, como:
 Ajustar a disponibilidade de bicicletas conforme a estação do ano, o clima e os horários de pico.
 Desenvolver campanhas promocionais para estimular a demanda em períodos de baixa utilização (inverno, dias chuvosos, horários fora de pico).
