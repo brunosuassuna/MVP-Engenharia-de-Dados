@@ -125,7 +125,7 @@ Matplotlib/Seaborn	Gráficos e insights visuais
 
 Clone este repositório:
 
-git clone https://github.com/seu-usuario/bike-sharing-mvp.git
+git clone https://github.com/brunosuassuna/MVP-Engenharia-de-Dados
 
 Acesse o Databricks e copie os arquivos do diretório:
 
