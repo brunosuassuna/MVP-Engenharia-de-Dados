@@ -134,3 +134,11 @@ Acesse o Databricks e copie os arquivos do diretório:
 Importe os arquivos .csv para um banco de dados SQL.
 
 Execute os scripts de ETL e análise disponíveis no repositório.
+
+Portfólio: Este projeto demonstra habilidades em:
+
+✅ Engenharia de Dados (ETL, modelagem).
+
+✅ Análise Exploratória (SQL, Python).
+
+✅ Storytelling com Dados (gráficos + recomendações acionáveis).
