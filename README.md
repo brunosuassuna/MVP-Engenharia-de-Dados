@@ -1,7 +1,12 @@
 📊 Projeto de Análise de Dados: Sistema de Bike Sharing
 GitHub: https://github.com/brunosuassuna/MVP-Engenharia-de-Dados
 
+📖 Descrição do Projeto
+
+Este projeto tem como objetivo analisar o comportamento dos aluguéis de bicicletas em um sistema de compartilhamento, identificando padrões e tendências para apoiar a tomada de decisões estratégicas.
+
 🎯 Objetivos
+
 Este projeto analisou padrões de demanda em um sistema de compartilhamento de bicicletas para apoiar decisões estratégicas, com foco em:
 
 Sazonalidade: Impacto das estações do ano no volume de aluguéis.
@@ -12,139 +17,120 @@ Comportamento dos usuários: Diferenças entre usuários casuais e registrados.
 
 Horários de pico: Variação da demanda ao longo do dia e da semana.
 
-📂 Metodologia
-🔍 Coleta e Modelagem dos Dados
-Fontes: Datasets day.csv e hour.csv do diretório /databricks-datasets/bikeSharing/ no Databricks.
+📂 1. Metodologia
 
-Modelagem: Criação de tabelas SQL (dados_dia e dados_hora) com documentação detalhada (Catálogo de Dados).
+📥 1.1. Coleta dos Dados
 
-ETL: Processo de carga via queries (ex.: CREATE TABLE dados_dia AS SELECT * FROM bikeSharing.day).
+Os dados foram obtidos do diretório /databricks-datasets/bikeSharing/ no Databricks.
 
-📊 Análise Exploratória
-Ferramentas: SQL (agregações), Python (Matplotlib/Seaborn) para visualizações.
+Conjunto de dados utilizado:
 
-Abordagem:
+day.csv: Dados agregados por dia.
 
-Correlação entre temperatura e demanda.
+hour.csv: Dados agregados por hora.
 
-Distribuição de aluguéis por estação, dia da semana e horário.
+Os arquivos foram copiados para /FileStore/tables/aula-databricks/projeto_final/bikeSharing/ para reprodutibilidade.
 
-Comparação entre usuários casuais e registrados.
+📑 1.2. Modelagem dos Dados Foram criadas duas tabelas no banco de dados SQL:
 
-📌 Resultados Principais
-Análise	Insights	Recomendações
-Sazonalidade	Verão: 35% do total de aluguéis; Inverno: 15%.	Campanhas promocionais no inverno para equilibrar demanda.
-Clima	Dias claros tiveram 40% mais aluguéis que dias chuvosos.	Ajustar frota com base em previsões meteorológicas.
-Horários de Pico	Dias úteis: 8h e 17h (deslocamento); Fins de semana: 12h (lazer).	Aumentar disponibilidade nos horários críticos.
-Temperatura vs. Demanda	Correlação positiva (0.75): maior demanda em temperaturas amenas (20-25°C).	Expandir frota em estações quentes.
-Usuários Casuais x Registrados	Registrados predominam em dias úteis; casuais em fins de semana.	Parcerias com atrações turísticas para incentivar uso recreativo.
-🛠 Tecnologias Utilizadas
-Plataforma: Databricks (processamento e análise).
+dados_dia: Dados agregados por dia (16 atributos).
 
-Linguagens: SQL (modelagem), Python (análise).
+dados_hora: Dados agregados por hora (17 atributos, incluindo a hora do dia).
 
-Visualização: Matplotlib, Seaborn (gráficos de dispersão, heatmaps, barras).
+Um Catálogo de Dados foi elaborado para documentar os atributos, tipos de dados e descrições de cada coluna.
 
-✅ Conclusões e Trabalhos Futuros
-Conclusões:
+🔄 1.3. Carga dos Dados
 
-Demanda é altamente influenciada por clima e fatores temporais.
+Utilização de ETL (Extração, Transformação e Carga) para inserir os dados nas tabelas SQL.
 
-Oportunidades para otimizar frota e campanhas de marketing.
+Exemplo de comando de carga:
 
-Melhorias Propostas:
+CREATE TABLE dados_dia AS
 
-Modelos Preditivos: Prever demanda com machine learning.
+SELECT * FROM bikeSharing.day;
 
-Dashboard Interativo: Power BI/Tableau para monitoramento em tempo real.
+🔍 1.4. Análise dos Dados Foram conduzidas análises exploratórias para responder às perguntas-chave do projeto:
 
-Dados Externos: Integrar eventos locais ou dados de tráfego.
+✔ Sazonalidade: Distribuição de aluguéis por estação do ano.
 
-📥 Reprodução do Projeto
-Clone o repositório:
+✔ Impacto do clima: Influência das condições climáticas na demanda.
+
+✔ Horários de pico: Padrões de uso ao longo do dia.
+
+✔ Dias úteis vs. fins de semana: Diferença no comportamento dos usuários.
+
+Ferramentas utilizadas:
+
+SQL para agregações e consultas.
+
+Python (Matplotlib, Seaborn) para visualizações gráficas.
+
+📊 2. Resultados e Discussões
+
+🍂 2.1. Sazonalidade - Total de Aluguéis por Estação
+
+Verão: Maior volume (35% do total).
+
+Inverno: Menor volume (15%). 📌 Implicação: Desenvolver campanhas promocionais no inverno para estimular a demanda.
+
+☁️ 2.2. Impacto do Clima nos Aluguéis
+
+Dias claros tiveram 40% mais aluguéis que dias chuvosos ou com neve.
+
+📌 Implicação: Ajustar a frota com base nas previsões meteorológicas.
+
+⏰ 2.3. Horários de Pico
+
+Dias úteis: 8h e 17h-18h (horários de deslocamento para o trabalho).
+
+Fins de semana: 12h (uso recreativo).
+
+📌 Implicação: Aumentar a disponibilidade de bicicletas nos horários de pico.
+
+📅 2.4. Dias Úteis vs. Finais de Semana
+
+Dias úteis tiveram 60% mais aluguéis que os fins de semana.
+
+📌 Implicação: Criar incentivos para aumentar o uso recreativo (parcerias com pontos turísticos).
+
+🌡️ 2.5. Relação entre Temperatura e Aluguéis
+
+Correlação positiva (coeficiente de 0,75) entre temperatura e número de aluguéis.
+
+📌 Implicação: Ajustar a frota conforme a estação do ano.
+
+✅ 3. Conclusão e Recomendações
+
+✔️ Ajustar a frota de bicicletas conforme estação do ano, clima e horários de pico.
+
+✔️ Criar campanhas promocionais para períodos de baixa demanda (inverno, dias chuvosos).
+
+✔️ Investir em infraestrutura para melhorar a experiência do usuário em condições climáticas adversas.
+
+✔️ Estabelecer parcerias estratégicas para incentivar o uso recreativo das bicicletas.
+
+🛠 4. Tecnologias Utilizadas
+
+Tecnologia Uso
+
+Databricks Plataforma de análise de dados
+
+SQL Modelagem e consultas
+
+Python Análises e visualizações
+
+Matplotlib/Seaborn Gráficos e insights visuais
+
+📌 5. Como Reproduzir o Projeto
+
+Clone este repositório:
 
 git clone https://github.com/brunosuassuna/MVP-Engenharia-de-Dados
 
-Acesse o Databricks e importe os datasets:
+Acesse o Databricks e copie os arquivos do diretório:
 
 /FileStore/tables/aula-databricks/projeto_final/bikeSharing/
 
-Execute os scripts de ETL e análise (disponíveis no repo).
+Importe os arquivos .csv para um banco de dados SQL.
 
-🔎 Autoavaliação e Desafios
-1. Limitações na Granularidade dos Dados
-
-Problema: Dados apenas em nível agregado (diário/horário) limitavam análises mais profundas de padrões individuais.
-
-Solução: Criei métricas derivadas como:
-
-"Demanda Relativa" (aluguéis/hora ÷ média histórica)
-
-"Sensação Térmica Efetiva" (combinação de temperatura + umidade)
-
-Segmentação por faixas de uso (leve/moderado/intenso)
-
-2. Complexidade na Visualização de Dados Multidimensionais
-
-Desafio: Representar simultaneamente clima, temperatura e demanda temporal.
-
-Inovações:
-
-Gráficos de calor 3D (hora × dia × demanda)
-
-Mapas de correlação interativos com Plotly
-
-FacetGrids no Seaborn para comparação entre grupos
-
-3. Adaptação ao Ecossistema Databricks
-
-Dificuldades:
-
-Gerenciamento de sessões Spark
-
-Otimização de queries SQL em grandes datasets
-
-Conquistas:
-
-Redução de 40% no tempo de processamento após ajuste de partições
-
-Documentação de boilerplates para operações recorrentes
-
-📈 Evolução de Habilidades
-Competências Desenvolvidas
-✔ Engenharia de Dados:
-
-Projeto de modelagem dimensional para dados temporais
-
-Técnicas de qualidade de dados (validação de faixas, tratamento de outliers)
-
-✔ Análise
-
-Cálculo avançado de métricas (elasticidade demanda-clima)
-
-Análise de sazonalidade com decomposição temporal
-
-✔ Visualização
-
-Princípios de design para dashboards (hierarquia visual, teoria das cores)
-
-Storytelling com dados para diferentes stakeholders
-
-🚀 Lições Aprendidas
-Valor da Documentação
-
-Mantive um log detalhado de todas as decisões de análise
-
-Criei um dicionário de dados com metadados enriquecidos
-
-Pensamento Crítico em Análise
-
-Aprendi a diferenciar correlação de causalidade
-
-Implementei testes de hipóteses para validar insights
-
-Gestão de Trade-offs
-
-Balanceamento entre profundidade analítica e prazos
-
-Priorização de features com maior impacto nos resultados
+Execute os scripts de ETL e análise disponíveis no repositório.
