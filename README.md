@@ -110,6 +110,28 @@ Correlação positiva (coeficiente de 0,75) entre temperatura e número de alugu
 
 ✔️ Estabelecer parcerias estratégicas para incentivar o uso recreativo das bicicletas.
 
+📊 Análise do Problema: Principais Insights
+
+1️⃣ Qual a demanda por estação do ano?
+
+Resultado:
+
+Verão tem 30% mais aluguéis que inverno
+
+Primavera e outono têm demanda intermediária
+
+2️⃣ Como o clima afeta os aluguéis?
+
+Descobertas:
+
+Dias claros (weathersit=1) têm 2x mais aluguéis que dias chuvosos
+
+Neblina reduz demanda em ~25% comparado a dias claros
+
+Padrão identificado:
+
+"Quanto melhor o clima, maior a demanda por bicicletas"
+
 🛠 4. Tecnologias Utilizadas
 
 Tecnologia Uso
