@@ -1,167 +1,114 @@
-📊 Projeto de Análise de Dados: Sistema de Bike Sharing
+# 🚴 Análise de Dados: Sistema de Bike Sharing
 
-GitHub: https://github.com/brunosuassuna/MVP-Engenharia-de-Dados
+## 📌 Visão Geral do Projeto
+Este projeto de análise de dados explora padrões de demanda em um sistema de compartilhamento de bicicletas, fornecendo insights valiosos para tomada de decisão estratégica. Através de técnicas de ETL, modelagem de dados e análise exploratória, identificamos fatores-chave que influenciam o comportamento dos usuários.
 
-📖 Descrição do Projeto
+## 🎯 Objetivos Principais
+- Analisar o impacto da sazonalidade no volume de aluguéis
+- Investigar a influência das condições meteorológicas na demanda
+- Comparar padrões de uso entre usuários casuais e registrados
+- Identificar horários de pico e variações diárias/semanais
+- Fornecer recomendações acionáveis baseadas em dados
 
-Este projeto tem como objetivo analisar o comportamento dos aluguéis de bicicletas em um sistema de compartilhamento, identificando padrões e tendências para apoiar a tomada de decisões estratégicas.
+## 📊 Principais Insights
+**🌦️ Impacto do Clima**
 
-🎯 Objetivos
+- Dias claros: 40% mais aluguéis que dias chuvosos/nevados
+- Neblina: reduz demanda em 25% comparado a dias claros
 
-Este projeto analisou padrões de demanda em um sistema de compartilhamento de bicicletas para apoiar decisões estratégicas, com foco em:
+**📅 Sazonalidade**
 
-Sazonalidade: Impacto das estações do ano no volume de aluguéis.
+- **Verão:** 35% do total de aluguéis (pico de demanda)
+- **Inverno:** 15% do total (menor demanda)
+## ⏰ Padrões Temporais
 
-Clima: Influência de condições meteorológicas (temperatura, umidade, clima).
+- **Dias úteis:** Picos às 8h e 17h-18h (deslocamento)
+- **Fins de semana:** Pico ao meio-dia (uso recreativo)
+## 🌡️ Fatores Ambientais
 
-Comportamento dos usuários: Diferenças entre usuários casuais e registrados.
+- Correlação de 0.75 entre temperatura e número de aluguéis
+## 🛠️ Tecnologias Utilizadas
+- **Plataforma:**	Databricks
+- **Linguagens:**	SQL, Python
+- **Visualização:**	Matplotlib, Seaborn
+Processamento	ETL, Modelagem de Dados,
+Versionamento	Git e GitHub
+## 📂 Estrutura do Projeto
+**Base de Dados**
+- **Origem:** /databricks-datasets/bikeSharing/
+- **Arquivos principais:** day.csv e hour.csv
 
-Horários de pico: Variação da demanda ao longo do dia e da semana.
+**Modelagem de Dados**
 
-📂 1. Metodologia
+**Tabelas SQL criadas:**
 
-📥 1.1. Coleta dos Dados
+- dados_dia (16 atributos)
 
-Os dados foram obtidos do diretório /databricks-datasets/bikeSharing/ no Databricks.
+- dados_hora (17 atributos)
 
-Conjunto de dados utilizado:
+**Catálogo de dados documentado**
+- **Processamento (ETL)**
 
-day.csv: Dados agregados por dia.
-
-hour.csv: Dados agregados por hora.
-
-Os arquivos foram copiados para /FileStore/tables/aula-databricks/projeto_final/bikeSharing/ para reprodutibilidade.
-
-📑 1.2. Modelagem dos Dados Foram criadas duas tabelas no banco de dados SQL:
-
-dados_dia: Dados agregados por dia (16 atributos).
-
-dados_hora: Dados agregados por hora (17 atributos, incluindo a hora do dia).
-
-Um Catálogo de Dados foi elaborado para documentar os atributos, tipos de dados e descrições de cada coluna.
-
-🔄 1.3. Carga dos Dados
-
-Utilização de ETL (Extração, Transformação e Carga) para inserir os dados nas tabelas SQL.
-
-Exemplo de comando de carga:
+- **Criação da tabela diária:**
 
 CREATE TABLE dados_dia AS
 
 SELECT * FROM bikeSharing.day;
 
-🔍 1.4. Análise dos Dados Foram conduzidas análises exploratórias para responder às perguntas-chave do projeto:
+- **Criação da tabela horária:**
 
-✔ Sazonalidade: Distribuição de aluguéis por estação do ano.
+CREATE TABLE dados_hora AS
 
-✔ Impacto do clima: Influência das condições climáticas na demanda.
+SELECT *, HOUR(dteday) as hora FROM bikeSharing.hour;
 
-✔ Horários de pico: Padrões de uso ao longo do dia.
+**Análise Exploratória**
 
-✔ Dias úteis vs. fins de semana: Diferença no comportamento dos usuários.
+- Consultas SQL para agregações
+- Visualizações com Python
+- Identificação de padrões e tendências
 
-Ferramentas utilizadas:
+## 📈 Principais Resultados
+**Recomendações Operacionais**
 
-SQL para agregações e consultas.
+- Ajustar frota conforme previsão do tempo e estações
+- Campanhas promocionais no inverno/dias chuvosos
+- Aumentar disponibilidade nos horários de pico
+- Estratégias de Marketing
+- Incentivos para uso recreativo nos fins de semana
+- Parcerias com pontos turísticos e empresas locais
+- Melhorias de Infraestrutura
+- Proteção contra condições climáticas adversas
+- Otimização da distribuição das estações
 
-Python (Matplotlib, Seaborn) para visualizações gráficas.
+## 🚀 Como Reproduzir o Projeto
 
-📊 2. Resultados e Discussões
-
-🍂 2.1. Sazonalidade - Total de Aluguéis por Estação
-
-Verão: Maior volume (35% do total).
-
-Inverno: Menor volume (15%). 📌 Implicação: Desenvolver campanhas promocionais no inverno para estimular a demanda.
-
-☁️ 2.2. Impacto do Clima nos Aluguéis
-
-Dias claros tiveram 40% mais aluguéis que dias chuvosos ou com neve.
-
-📌 Implicação: Ajustar a frota com base nas previsões meteorológicas.
-
-⏰ 2.3. Horários de Pico
-
-Dias úteis: 8h e 17h-18h (horários de deslocamento para o trabalho).
-
-Fins de semana: 12h (uso recreativo).
-
-📌 Implicação: Aumentar a disponibilidade de bicicletas nos horários de pico.
-
-📅 2.4. Dias Úteis vs. Finais de Semana
-
-Dias úteis tiveram 60% mais aluguéis que os fins de semana.
-
-📌 Implicação: Criar incentivos para aumentar o uso recreativo (parcerias com pontos turísticos).
-
-🌡️ 2.5. Relação entre Temperatura e Aluguéis
-
-Correlação positiva (coeficiente de 0,75) entre temperatura e número de aluguéis.
-
-📌 Implicação: Ajustar a frota conforme a estação do ano.
-
-✅ 3. Conclusão e Recomendações
-
-✔️ Ajustar a frota de bicicletas conforme estação do ano, clima e horários de pico.
-
-✔️ Criar campanhas promocionais para períodos de baixa demanda (inverno, dias chuvosos).
-
-✔️ Investir em infraestrutura para melhorar a experiência do usuário em condições climáticas adversas.
-
-✔️ Estabelecer parcerias estratégicas para incentivar o uso recreativo das bicicletas.
-
-📊 Análise do Problema: Principais Insights
-
-1️⃣ Qual a demanda por estação do ano?
-
-Resultado:
-
-Verão tem 30% mais aluguéis que inverno
-
-Primavera e outono têm demanda intermediária
-
-2️⃣ Como o clima afeta os aluguéis?
-
-Descobertas:
-
-Dias claros (weathersit=1) têm 2x mais aluguéis que dias chuvosos
-
-Neblina reduz demanda em ~25% comparado a dias claros
-
-Padrão identificado:
-
-"Quanto melhor o clima, maior a demanda por bicicletas"
-
-🛠 4. Tecnologias Utilizadas
-
-Tecnologia Uso
-
-Databricks Plataforma de análise de dados
-
-SQL Modelagem e consultas
-
-Python Análises e visualizações
-
-Matplotlib/Seaborn Gráficos e insights visuais
-
-📌 5. Como Reproduzir o Projeto
-
-Clone este repositório:
+**Clone o repositório:**
 
 git clone https://github.com/brunosuassuna/MVP-Engenharia-de-Dados
 
-Acesse o Databricks e copie os arquivos do diretório:
+**Acesse o Databricks e importe os datasets:**
 
 /FileStore/tables/aula-databricks/projeto_final/bikeSharing/
 
-Importe os arquivos .csv para um banco de dados SQL.
+- Execute os scripts de ETL e análise disponíveis
 
-Execute os scripts de ETL e análise disponíveis no repositório.
+- Explore as visualizações e relatórios gerados
 
-Portfólio: Este projeto demonstra habilidades em:
+## 💡 Habilidades Demonstradas
+✅ Engenharia de Dados (ETL, modelagem)
 
-✅ Engenharia de Dados (ETL, modelagem).
+✅ Análise Exploratória (SQL, Python)
 
-✅ Análise Exploratória (SQL, Python).
+✅ Visualização de Dados e Storytelling
 
-✅ Storytelling com Dados (gráficos + recomendações acionáveis).
+✅ Solução de Problemas Baseada em Dados
+
+✅ Documentação Técnica
+
+## 📬 Contato
+
+- **Email:** brunosuassuna.dev@gmail.com
+
+- **LinkedIn:** www.linkedin.com/in/bruno-suassuna-698aa7235
+
+**Licença:** [MIT](https://opensource.org/license/MIT)
