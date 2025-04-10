@@ -36,7 +36,7 @@ Escopo inicial priorizado, postergando modelos preditivos para futuras iteraçõ
 
 ## 4. Conclusão
 O projeto consolidou habilidades críticas em engenharia e análise de dados, desde a limpeza de dados até a comunicação de insights. As limitações identificadas reforçam a importância de um planejamento robusto de coleta de dados, enquanto as sugestões de melhoria abrem oportunidades para:
-Aplicação de machine learning.
-Maior escalabilidade com ferramentas de cloud (AWS/GCP).
-Impacto direto na operação do negócio (ex.: reposição estratégica de bicicletas).
+- Aplicação de machine learning.
+- Maior escalabilidade com ferramentas de cloud (AWS/GCP).
+- Impacto direto na operação do negócio (ex.: reposição estratégica de bicicletas).
 
