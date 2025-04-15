@@ -30,7 +30,7 @@ Este projeto de análise de dados explora padrões de demanda em um sistema de c
 ## 🛠️ Tecnologias Utilizadas
 - **Plataforma:**	Databricks
 - **Linguagens:**	SQL, Python
-- **Visualização:**	Matplotlib, Seaborn
+- **Visualização:**	Matplotlib, Seaborn,
 Processamento	ETL, Modelagem de Dados,
 Versionamento	Git e GitHub
 ## 📂 Estrutura do Projeto
