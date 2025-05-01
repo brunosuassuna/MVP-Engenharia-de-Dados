@@ -1,114 +1,125 @@
-# 🚴 Análise de Dados: Sistema de Bike Sharing
+# 🚴 **Análise de Dados: Sistema de Bike Sharing**
 
-## 📌 Visão Geral do Projeto
+## 📌 **Visão Geral do Projeto**
+
 Este projeto de análise de dados explora padrões de demanda em um sistema de compartilhamento de bicicletas, fornecendo insights valiosos para tomada de decisão estratégica. Através de técnicas de ETL, modelagem de dados e análise exploratória, identificamos fatores-chave que influenciam o comportamento dos usuários.
 
-## 🎯 Objetivos Principais
+---
+
+## 🎯 **Objetivos Principais**
+
 - Analisar o impacto da sazonalidade no volume de aluguéis
 - Investigar a influência das condições meteorológicas na demanda
 - Comparar padrões de uso entre usuários casuais e registrados
 - Identificar horários de pico e variações diárias/semanais
 - Fornecer recomendações acionáveis baseadas em dados
 
-## 📊 Principais Insights
-**🌦️ Impacto do Clima**
+---
 
+## 📊 **Principais Insights**
+
+### 🌦️ **Impacto do Clima**
 - Dias claros: 40% mais aluguéis que dias chuvosos/nevados
 - Neblina: reduz demanda em 25% comparado a dias claros
 
-**📅 Sazonalidade**
-
+### 📅 **Sazonalidade**
 - **Verão:** 35% do total de aluguéis (pico de demanda)
 - **Inverno:** 15% do total (menor demanda)
-## ⏰ Padrões Temporais
 
+### ⏰ **Padrões Temporais**
 - **Dias úteis:** Picos às 8h e 17h-18h (deslocamento)
 - **Fins de semana:** Pico ao meio-dia (uso recreativo)
-## 🌡️ Fatores Ambientais
 
+### 🌡️ **Fatores Ambientais**
 - Correlação de 0.75 entre temperatura e número de aluguéis
-## 🛠️ Tecnologias Utilizadas
-- **Plataforma:**	Databricks
-- **Linguagens:**	SQL, Python
-- **Visualização:**	Matplotlib, Seaborn,
-Processamento	ETL, Modelagem de Dados,
-Versionamento	Git e GitHub
-## 📂 Estrutura do Projeto
-**Base de Dados**
-- **Origem:** /databricks-datasets/bikeSharing/
-- **Arquivos principais:** day.csv e hour.csv
 
-**Modelagem de Dados**
+---
 
-**Tabelas SQL criadas:**
+## 🛠️ **Tecnologias Utilizadas**
 
-- dados_dia (16 atributos)
+- **Plataforma:** Databricks
+- **Linguagens:** SQL, Python
+- **Visualização:** Matplotlib, Seaborn
+- **Processamento:** ETL, Modelagem de Dados
+- **Versionamento:** Git e GitHub
 
-- dados_hora (17 atributos)
+---
 
-**Catálogo de dados documentado**
-- **Processamento (ETL)**
+## 📂 **Estrutura do Projeto**
 
+### **Base de Dados**
+- **Origem:** `/databricks-datasets/bikeSharing/`
+- **Arquivos principais:** `day.csv` e `hour.csv`
+
+### **Modelagem de Dados**
+- **Tabelas SQL criadas:**
+  - `dados_dia` (16 atributos)
+  - `dados_hora` (17 atributos)
+
+- **Catálogo de dados documentado**
+
+### **Processamento (ETL)**
 - **Criação da tabela diária:**
 
+```sql
 CREATE TABLE dados_dia AS
-
 SELECT * FROM bikeSharing.day;
+```
 
-- **Criação da tabela horária:**
 
-CREATE TABLE dados_hora AS
+## 📊 **Análise Exploratória**
 
-SELECT *, HOUR(dteday) as hora FROM bikeSharing.hour;
+- **Consultas SQL para agregações**: Utilização de SQL para realizar agregações e calcular métricas chave, como a média de aluguéis por hora, dia e condições climáticas.
+- **Visualizações com Python**: Criação de gráficos usando bibliotecas como Matplotlib e Seaborn para visualizar padrões de uso, como as variações de demanda por hora, clima e estação do ano.
+- **Identificação de padrões e tendências**: Análise dos dados para descobrir comportamentos recorrentes e influências de fatores como clima, sazonalidade e horários de pico.
 
-**Análise Exploratória**
+---
 
-- Consultas SQL para agregações
-- Visualizações com Python
-- Identificação de padrões e tendências
+## 📈 **Principais Resultados**
 
-## 📈 Principais Resultados
-**Recomendações Operacionais**
+### **Recomendações Operacionais**
+- **Ajustar frota conforme previsão do tempo e estações**: Planejamento da quantidade de bicicletas disponível baseado nas condições climáticas e nas estações do ano.
+- **Campanhas promocionais no inverno/dias chuvosos**: Implementar campanhas de incentivo ao uso das bicicletas durante períodos de baixa demanda.
+- **Aumentar disponibilidade nos horários de pico**: Garantir que haja um número adequado de bicicletas disponíveis nos horários de maior demanda, como as manhãs e final da tarde nos dias úteis.
 
-- Ajustar frota conforme previsão do tempo e estações
-- Campanhas promocionais no inverno/dias chuvosos
-- Aumentar disponibilidade nos horários de pico
-- Estratégias de Marketing
-- Incentivos para uso recreativo nos fins de semana
-- Parcerias com pontos turísticos e empresas locais
-- Melhorias de Infraestrutura
-- Proteção contra condições climáticas adversas
-- Otimização da distribuição das estações
+### **Estratégias de Marketing**
+- **Incentivos para uso recreativo nos fins de semana**: Criar estratégias de marketing para incentivar o uso das bicicletas para lazer, especialmente aos finais de semana.
+- **Parcerias com pontos turísticos e empresas locais**: Explorar parcerias que possam aumentar a visibilidade e a utilização do sistema de bike sharing.
 
-## 🚀 Como Reproduzir o Projeto
+### **Melhorias de Infraestrutura**
+- **Proteção contra condições climáticas adversas**: Garantir que as estações de bicicletas ofereçam proteção contra condições climáticas como chuvas fortes ou temperaturas extremas.
+- **Otimização da distribuição das estações**: Analisar os padrões de uso e otimizar a distribuição das estações para cobrir melhor áreas com maior demanda.
 
-**Clone o repositório:**
+---
 
+## 🚀 **Como Reproduzir o Projeto**
+
+1. **Clone o repositório:**
+
+```bash
 git clone https://github.com/brunosuassuna/MVP-Engenharia-de-Dados
+```
 
-**Acesse o Databricks e importe os datasets:**
+## 💡 **Habilidades Demonstradas**
 
-/FileStore/tables/aula-databricks/projeto_final/bikeSharing/
+- ✅ **Engenharia de Dados**  
+  - Experiência em processos de ETL e modelagem de dados para análise eficiente e organização das informações.
+  
+- ✅ **Análise Exploratória**  
+  - Proficiente em SQL e Python para análise e manipulação de grandes volumes de dados, identificando padrões e insights importantes.
 
-- Execute os scripts de ETL e análise disponíveis
+- ✅ **Visualização de Dados e Storytelling**  
+  - Habilidade em criar visualizações impactantes usando Matplotlib e Seaborn, facilitando a compreensão de dados e apresentando insights de maneira clara.
 
-- Explore as visualizações e relatórios gerados
+- ✅ **Solução de Problemas Baseada em Dados**  
+  - Capacidade de identificar e resolver problemas operacionais com base em dados reais, implementando soluções que melhoram a eficiência e a tomada de decisão.
 
-## 💡 Habilidades Demonstradas
-✅ Engenharia de Dados (ETL, modelagem)
+- ✅ **Documentação Técnica**  
+  - Produção de documentação detalhada e bem estruturada, garantindo a clareza no processo e a comunicação eficaz entre as partes interessadas.
 
-✅ Análise Exploratória (SQL, Python)
-
-✅ Visualização de Dados e Storytelling
-
-✅ Solução de Problemas Baseada em Dados
-
-✅ Documentação Técnica
 
 ## 📬 Contato
 
 - **Email:** brunosuassuna.dev@gmail.com
-
 - **LinkedIn:** www.linkedin.com/in/bruno-suassuna-698aa7235
-
-**Licença:** [MIT](https://opensource.org/license/MIT)
+- **Licença:** [MIT](https://opensource.org/license/MIT)
