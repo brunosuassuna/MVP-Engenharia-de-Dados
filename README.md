@@ -121,5 +121,5 @@ git clone https://github.com/brunosuassuna/MVP-Engenharia-de-Dados
 ## 📬 Contato
 
 - **Email:** brunosuassuna.dev@gmail.com
-- **LinkedIn:** www.linkedin.com/in/bruno-suassuna-698aa7235
+- **LinkedIn:** www.linkedin.com/in/brunosuassuna
 - **Licença:** [MIT](https://opensource.org/license/MIT)
